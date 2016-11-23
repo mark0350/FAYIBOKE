@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', ['uses' => 'HomeController@index' , 'as' => 'index' ]);
+
+
+Route::resource('post','PostController');
+
+Route::resource('category','CategoryController');
+
+Auth::routes();
+

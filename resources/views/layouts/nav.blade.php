@@ -17,9 +17,11 @@
                <li role="presentation">
                   <a href="http://joysport.club/">我的博客</a>
                </li>
-               <li role="presentation">
-                  <a href="http://joysport.club/">我的博客</a>
-               </li>
+               @if(Auth::check())
+                  <li role="presentation">
+                     <a href="{{ route('post.create') }}">发表文章</a>
+                  </li>
+               @endif
                <li role="presentation">
                   <a href="http://joysport.club/">我的博客</a>
                </li>
