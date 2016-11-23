@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -34,8 +35,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'name' => 'required|unique:categories',
+        ]);
+
+        $category = Category::create(['name' => $request['name']]);
+        if ($category)
+            return redirect('/')->with('success', '分类' . $request['name'] . '创建成功');
+        else
+            return redirect('/')->with('errors', '分类' . $request['name'] . '创建失敗');
+                }
 
     /**
      * Display the specified resource.

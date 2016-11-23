@@ -11,8 +11,8 @@
     <title>法医博客</title>
 
     <!-- Style -->
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset('/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Scripts -->
@@ -30,6 +30,8 @@
         <!-- end of nav -->
 <section class="content-wrap">
     <div class="container">
+        @include('partials.errors')
+        @include('partials.success')
         @yield("content")
     </div>
 </section>
