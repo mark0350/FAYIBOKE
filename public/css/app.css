@@ -14,7 +14,7 @@ html,body{
     text-align: center;
     background-color: #607D8B;
     color: #fff;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .main-header h2{
@@ -46,17 +46,25 @@ a:active,a:focus,a img{
     border-top: 1px solid #ebebeb;
     /*border-bottom: 2px solid #e1e1e1;*/
     margin-bottom: 35px;
-    box-shadow: 0px 2px 2px #888888;
+    box-shadow: 0 1px 2px #888888;
 }
-.main-navigation .menu{
-    padding: 0;
-    margin: 0;
+.menu{
+    padding:0 20px;
+    margin-top: -20px;
 }
 
-.main-navigation .menu li{
+.menu li{
     list-style: none;
     display: inline-block;
     position: relative;
+    padding: 0 15px;
+}
+.menu a{
+    text-decoration: none;
+    color: white;
+}
+.menu a:hover{
+    color: cornflowerblue;
 }
 
 .main-navigation .menu li.nav-current{
@@ -84,22 +92,19 @@ a:active,a:focus,a img{
     margin-bottom: 35px;
     position: relative;
     overflow: hidden;
-    box-shadow: 1.5px 1.5px 2px #888888;
+    box-shadow: 1px 1px 2px #888888;
 }
 
 
 .post-detail{
-    padding-left: 35px;
-    padding-right: 35px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 35px;
     background: white;
-    box-shadow: 1.5px 1.5px 2px #888888;
+    box-shadow: 1px 1px 2px #888888;
 }
 
 .post .post-header .post-title{
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2.1em;
     line-height: 1em;
 }
 
@@ -107,7 +112,7 @@ a:active,a:focus,a img{
     color: #303030;
 }
 
-.post .post-header .post-meta{
+.post-meta{
     color: #959595;
     font-size: 12px;
     margin: 14px 0 5px;
@@ -145,12 +150,22 @@ a:active,a:focus,a img{
     color: #959595;
 }
 
+.post-detail img{
+    box-sizing: border-box;
+    margin: auto;
+    border: 1px solid #ddd;
+    display: block;
+    padding: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
 
 /*sidebar*/
 
 .widget{
     background: white;
-    box-shadow: 1.5px 1.5px 2px #888888;
+    box-shadow: 1px 1px 2px #888888;
     overflow: hidden;
     margin-bottom: 35px;
 }

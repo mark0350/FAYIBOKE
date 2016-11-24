@@ -14,8 +14,9 @@
     <link href="{{asset('/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
+    @yield('css')
 
-    <!-- Scripts -->
+            <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
@@ -26,9 +27,8 @@
 <body class="home-template">
 @include('layouts.header')
         <!-- end of header -->
-@include('layouts.nav')
-        <!-- end of nav -->
-<section class="content-wrap">
+{{--@include('layouts.nav')--}}
+<section class="content-wrap" style="margin-top: 35px">
     <div class="container">
         @include('partials.errors')
         @include('partials.success')
@@ -39,7 +39,11 @@
 @include('layouts.footer')
 
 <!-- Scripts -->
+<link href="{{asset('/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}" rel="stylesheet">
+<link href="{{asset('/js/jquery-3.1.1.min.js')}}" rel="stylesheet">
+
 <script src="/js/app.js"></script>
+@yield('script')
 
 </body>
 </html>
