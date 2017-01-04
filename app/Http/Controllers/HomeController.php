@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-use Illuminate\Http\Request;
-
+use App\Http\Repository\PostRepository;
+use DB;
 class HomeController extends Controller
 {
+    protected $postRepository;
+
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @param PostRepository $postRepository
      */
-    public function __construct()
+    public function __construct(PostRepository $postRepository)
     {
-        /*$this->middleware('auth');*/
+        $this->postRepository = $postRepository;
     }
 
     /**
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index',['posts'=>Post::orderBy('created_at', 'desc')->paginate(7)]);
+        $posts = $this->postRepository->pagedPosts();
+        return view('index', ['posts' => $posts]);
     }
 }

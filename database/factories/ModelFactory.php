@@ -12,12 +12,35 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
-
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'email' => $faker->safeEmail,
+        'password' => bcrypt('123456'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence(mt_rand(5, 10)),
+        'content' => join("\n\n", $faker->paragraphs(mt_rand(7, 20))),
+        'slug' => $faker->slug(),
+        'published_at' => $faker->dateTime,
+        'description' => $faker->sentence(mt_rand(5, 15)),
+        /*'category_id' => function () {
+            return factory(App\Category::class)->create()->id;
+        },*/
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => str_random(7),
+    ];
+});
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => str_random(7),
     ];
 });
